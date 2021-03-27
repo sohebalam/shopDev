@@ -2,7 +2,7 @@ import React from "react"
 import Button from "@material-ui/core/Button"
 import Menu from "@material-ui/core/Menu"
 import MenuItem from "@material-ui/core/MenuItem"
-import { Link } from "@material-ui/core"
+import Link from "next/link"
 
 const AdminMenu = () => {
   const [anchorEl, setAnchorEl] = React.useState(null)

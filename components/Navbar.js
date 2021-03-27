@@ -9,6 +9,8 @@ import IconButton from "@material-ui/core/IconButton"
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart"
 import Image from "next/image"
 import PersonIcon from "@material-ui/icons/Person"
+import { Box, Grid, GridList, List, ListItem } from "@material-ui/core"
+import Head from "next/head"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,41 +19,51 @@ const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
-  title: {
-    flexGrow: 1,
-  },
 }))
 
 const Navbar = () => {
   const classes = useStyles()
   return (
-    <div>
+    <Grid container>
       <AppBar position="static">
         <Toolbar>
-          <IconButton aria-label="menu">
-            <Link href="/">
-              <Image src="/v3.png" height="40px" width="40px" alt="logo" />
+          <Grid item xs={4}>
+            <ListItem>
+              <Link href="/">
+                <IconButton aria-label="menu">
+                  <Image src="/v3.png" height="40px" width="40px" alt="logo" />
+                </IconButton>
+              </Link>
+              <Typography variant="h6">OpenFreeUni</Typography>
+            </ListItem>
+          </Grid>
+          <Grid item xs={10}></Grid>
+          <Grid
+            item
+            xs={4}
+            style={{
+              justifyContent: " right",
+              alignItems: " right",
+              display: "flex",
+            }}
+          >
+            <Link href="/cart">
+              <Button color="inherit">
+                <ShoppingCartIcon />
+                Cart
+              </Button>
             </Link>
-          </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            OpenFreeUni
-          </Typography>
-          <Link href="/cart">
-            <Button color="inherit">
-              <ShoppingCartIcon />
-              Cart
-            </Button>
-          </Link>
-          <Link href="/login">
-            <Button color="inherit">
-              <PersonIcon />
-              Login
-            </Button>
-          </Link>
-          <Button color="inherit">Login</Button>
+            <Link href="/login">
+              <Button color="inherit">
+                <PersonIcon />
+                Login
+              </Button>
+            </Link>
+            <Button color="inherit">Login</Button>
+          </Grid>
         </Toolbar>
       </AppBar>
-    </div>
+    </Grid>
   )
 }
 
